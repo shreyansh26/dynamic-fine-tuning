@@ -31,13 +31,16 @@ if __name__ == "__main__":
     dataset = load_numina_math()
     print(dataset.shape)
     # dataset = dataset.sample(50000, random_state=1023)
-    # os.makedirs("data", exist_ok=True)
-    # dataset.to_csv("data/numina_math.csv", index=False)
+    os.makedirs("data", exist_ok=True)
+    dataset.to_csv("data/numina_math.csv", index=False)
 
     # Testing for other datasets
     dataset = load_math_500()
     print(dataset.shape)
+    dataset.to_csv("data/math_500.csv", index=False)
     dataset = load_minerva_math()
     print(dataset.shape)
+    dataset.to_csv("data/minerva_math.csv", index=False)
     dataset = load_olympiad_bench()
     print(dataset.shape)
+    dataset.to_csv("data/olympiad_bench.csv", index=False)
