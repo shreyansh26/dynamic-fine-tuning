@@ -13,7 +13,7 @@ def evaluate(model_response, gt_answer, data_name):
     is_correct = math_equal(model_answer, gt_answer, timeout=True)
     return is_correct
 
-def evaluate_math_500(data_name, loss_type):
+def score_math_500(data_name, loss_type):
     df = pd.read_csv(f"data/math_500_model_response_{loss_type}.csv")
     correct_count = 0
     for idx, row in tqdm(df.iterrows(), total=len(df)):
@@ -28,7 +28,7 @@ def evaluate_math_500(data_name, loss_type):
     print(f"Total count: {len(df)}")
     print(f"Accuracy: {correct_count/len(df)}")
 
-def evaluate_minerva_math(data_name, loss_type):
+def score_minerva_math(data_name, loss_type):
     df = pd.read_csv(f"data/minerva_math_model_response_{loss_type}.csv")
     correct_count = 0
     for idx, row in tqdm(df.iterrows(), total=len(df)):
@@ -43,7 +43,7 @@ def evaluate_minerva_math(data_name, loss_type):
     print(f"Total count: {len(df)}")
     print(f"Accuracy: {correct_count/len(df)}")
 
-def evaluate_olympiad_bench(data_name, loss_type):
+def score_olympiad_bench(data_name, loss_type):
     df = pd.read_csv(f"data/olympiad_bench_model_response_{loss_type}.csv")
     correct_count = 0
     for idx, row in tqdm(df.iterrows(), total=len(df)):
@@ -59,11 +59,11 @@ def evaluate_olympiad_bench(data_name, loss_type):
     print(f"Accuracy: {correct_count/len(df)}")
 
 if __name__ == "__main__":
-    evaluate_math_500("math_500", "sft")
-    evaluate_math_500("math_500", "dft")
+    score_math_500("math_500", "sft")
+    score_math_500("math_500", "dft")
 
-    evaluate_minerva_math("minerva_math", "sft")
-    evaluate_minerva_math("minerva_math", "dft")
+    score_minerva_math("minerva_math", "sft")
+    score_minerva_math("minerva_math", "dft")
 
-    evaluate_olympiad_bench("olympiad_bench", "sft")
-    evaluate_olympiad_bench("olympiad_bench", "dft")
+    score_olympiad_bench("olympiad_bench", "sft")
+    score_olympiad_bench("olympiad_bench", "dft")
