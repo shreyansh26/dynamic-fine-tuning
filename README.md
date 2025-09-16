@@ -37,9 +37,9 @@ python prepare_training_data.py  # writes JSONLs under data/
 - Loss: choose with `--loss-type {sft,dft}`.
 
 ```bash
-bash bash_train_qwen3_flash_fsdp_compile_dcp.sh
+bash bash_train_qwen25_flash_fsdp_compile_dcp.sh
 # or directly
-torchrun --nnodes=1 --nproc-per-node=4 --master_port 29518 run_train_qwen3_fsdp.py --dcp-api --loss-type dft
+torchrun --nnodes=1 --nproc-per-node=4 --master_port 29518 run_train_qwen25_fsdp.py --dcp-api --loss-type dft
 ```
 
 ### Evaluation methodology
